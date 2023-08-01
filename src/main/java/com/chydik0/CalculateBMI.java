@@ -39,7 +39,7 @@ public class CalculateBMI extends HttpServlet {
                                               	<input type="number" id="height" name="height" placeholder="Enter your height">
                                            </div>
                                            <button id="button" type="submit">Calculate BMI</button>
-                                           <div id="result">
+                                           <div id="result" style= "color = %s;">
                                              	<p>
                                               		Your BMI: %s
                                               	</p>                                         
@@ -49,26 +49,14 @@ public class CalculateBMI extends HttpServlet {
                                            </div>    
                                        </form>
                                    </div>
-                                    <script type="text/javascript">
-                                        function changeTextColor(color) {
-                                            alert(color);
-                                            document.getElementById("result").style.color = color;
-                                        }
-                                                                                          
-                                        var buttonElement = document.getElementById("button");
-                                        
-                                        buttonElement.addEventListener("click", function() {
-                                        alert("Кнопка была нажата! addEventListener");
-                                        changeTextColor('%s');
-                                   		});
-                                   </script>            
                                </body>
                            </html>
                         """,
                 req.getContextPath(),
+                color,
                 getParametersFromReq(req),
-                classification,
-                color
+                classification
+
         );
     }
 
@@ -130,3 +118,19 @@ public class CalculateBMI extends HttpServlet {
         }
     }
 }
+
+/*
+<script type="text/javascript">
+                                        function changeTextColor(color) {
+                                            alert(color);
+                                            document.getElementById("result").style.color = color;
+                                        }
+
+                                        var buttonElement = document.getElementById("button");
+
+                                        buttonElement.addEventListener("click", function() {
+                                        alert("Кнопка была нажата! addEventListener");
+                                        changeTextColor('%s');
+                                   		});
+                                   </script>
+ */
